@@ -12,7 +12,8 @@ int main(int argc, char *argv[]) {
     int opt;
     char *log_path = NULL;
     char *error_path = NULL;
-
+    int users_flag = 0;
+    int processes_flag = 0;
     // Определение длинных опций
     struct option long_options[] = {
         {"users", no_argument, NULL, 'u'},
@@ -27,10 +28,14 @@ int main(int argc, char *argv[]) {
     while ((opt = getopt_long(argc, argv, "uphl:e:", long_options, NULL)) != -1) {
         switch (opt) {
             case 'u':
-                list_users();
+                users_flag = 1;
+                if (log_path) {
+                    set_log_path(log_path);}
                 break;
             case 'p':
-                list_processes();
+                processes_flag = 1;
+                if (log_path) {
+                    set_log_path(log_path);}
                 break;
             case 'h':
                 print_help();
@@ -48,7 +53,22 @@ int main(int argc, char *argv[]) {
                 return 1;
         }
     }
+    if (error_path) {
+        set_log_path(error_path);
+        }
 
+    if (users_flag) {
+        list_users(); // Вывод списка пользователей
+    }
+    if (processes_flag) {
+        list_processes  (); // Вывод списка процессов
+    }
+
+    // Если не было указано ни одной команды, выводим справку
+    if (optind == 1 && !users_flag && !processes_flag) {
+        print_help();
+    }
     return 0;
+}
 }
 
