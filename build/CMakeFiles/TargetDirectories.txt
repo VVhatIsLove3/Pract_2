@@ -1,3 +1,0 @@
-/home/sa/Systems-programming-2/build/CMakeFiles/rebuild_cache.dir
-/home/sa/Systems-programming-2/build/CMakeFiles/sp2.dir
-/home/sa/Systems-programming-2/build/CMakeFiles/edit_cache.dir

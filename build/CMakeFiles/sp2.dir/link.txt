@@ -1,1 +1,0 @@
-/usr/bin/cc    CMakeFiles/sp2.dir/main.c.o CMakeFiles/sp2.dir/users.c.o CMakeFiles/sp2.dir/processes.c.o CMakeFiles/sp2.dir/help.c.o CMakeFiles/sp2.dir/logger.c.o CMakeFiles/sp2.dir/error_handler.c.o  -o sp2 
